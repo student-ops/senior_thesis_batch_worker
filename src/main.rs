@@ -19,6 +19,7 @@ impl Default for Surroundings {
             rssi: 0.0,
             tempreture: 0.0,
             moisuture: 0.0,
+
             airPressure: 0.0,
         }
     }
