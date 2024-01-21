@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: batch-worker-daemonset
+spec:
+  selector:
+    matchLabels:
+      app: batch-worker
+  template:
+    metadata:
+      labels:
+        app: batch-worker
+    spec:
+      containers:
+        - name: batch-worker
+          image: lakky1/k8s_batch_worker
+          env:
+            - name: BATCH_INTERVAL
+              value: "10"
+            - name: INFLUXDB_ORG
+              value: "some_org"
+            - name: INFLUXDB_TOKEN
+              value: "4eYvsu8wZCJ6tKuE2sxvFHkvYFwSMVK0011hEEiojvejzpSaij86vYQomN_12au6eK-2MZ6Knr-Sax201y70w=="
+            - name: NODE_LOCATION
+              value: "ngs"
+            - name: CENTRAL_DB_SVC
+              value: "central-db-svc"
+            - name: INFLUXDB_HOST
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+      nodeSelector:
+        role: edge_worker

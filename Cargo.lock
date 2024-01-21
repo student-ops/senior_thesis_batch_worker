@@ -99,6 +99,7 @@ name = "batch_worker"
 version = "0.1.0"
 dependencies = [
  "chrono",
+ "futures",
  "influxdb2",
  "influxdb2-structmap",
  "num-traits",
