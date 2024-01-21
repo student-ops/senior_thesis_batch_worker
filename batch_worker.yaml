@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: batch-worker
-          image: lakky1/k8s_batch_worker
+          image: lakky1/x86_batch_worker
           env:
             - name: BATCH_INTERVAL
               value: "10"

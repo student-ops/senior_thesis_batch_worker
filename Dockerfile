@@ -1,8 +1,6 @@
-# ビルドステージ
 FROM rust:1.73 as builder
 
-# 作業ディレクトリを設定
-WORKDIR /usr/src/batch_worker
+WORKDIR /app
 
 COPY Cargo.toml Cargo.lock ./
 
