@@ -1,19 +1,13 @@
-# ビルドステージ
 FROM rust:1.73 as builder
 
-# 作業ディレクトリを設定
 WORKDIR /usr/src/batch_worker
 
 COPY Cargo.toml Cargo.lock ./
 
-# 実際のソースコードをコピー
 COPY src ./src
 
-# アプリケーションをリリースモードでビルド
-RUN touch src/main.rs \
-    && cargo build --release
+RUN cargo build --release
 
-# 実行ステージ
 FROM debian:buster-slim
 
 # 必要なパッケージをインストール
