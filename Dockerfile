@@ -1,6 +1,6 @@
 FROM rust:1.73 as builder
 
-WORKDIR /app
+WORKDIR  /usr/local/bin
 
 COPY Cargo.toml Cargo.lock ./
 
